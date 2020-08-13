@@ -33,7 +33,20 @@ pipeline {
                 failure {
                     echo "App failed to start :("
                 }
-
+            }
+        }
+        stage('Run Tests'){
+            steps {
+                powershell(script: """
+                pytest ./tests/test_sample.py
+                """)
+            }
+        }
+        stage('Stop Test App'){
+            steps {
+                powershell(script: """
+                docker-compose down
+                """)
             }
         }
     }
