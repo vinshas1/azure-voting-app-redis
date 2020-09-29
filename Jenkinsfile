@@ -42,12 +42,12 @@ pipeline {
                 """)
             }
         }
-        stage('Stop Test App'){
-            steps {
-                powershell(script: """
-                docker-compose down
-                """)
-            }
-        }
+        #stage('Stop Test App'){
+         #   steps {
+          #      powershell(script: """
+           #     docker-compose down
+            #    """)
+            #}
+        #}
     }
 }
